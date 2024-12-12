@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://d2culxnxbccemt.cloudfront.net/pop/content/uploads/2017/06/06164546/Above-the-clouds-5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

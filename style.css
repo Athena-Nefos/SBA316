@@ -9,3 +9,23 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+#quiz-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+    color: rgb(171, 97, 97);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+

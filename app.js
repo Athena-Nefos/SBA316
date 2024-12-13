@@ -71,9 +71,39 @@ const quizData = [
         correctanswer: "event.stopPropagation"
     },
     {
-        question: "In the context of an event handler, what provides informationabout the event, such as the type of event and the target element?"
+        question: "In the context of an event handler, what provides informationabout the event, such as the type of event and the target element?",
         options: ["event.detail", "event.type", "event.info"],
         correctAnswer: "event.type"
     },
-    
+    {
+        question: "How can you verify, using JavaScript, that a user has selected at least one option from a group of radio buttons?",
+        options: ["By checking if any radio button's checked property is true.", "By checking the value attribute of each radio button.", "By checking the status property of the radio buttons."],
+        correctAnswer: "By checking if any radio button's checked property is true."
+    },
+    {
+        question: "Which psuedo-class gets applied to an input feild when its value is invalid according to its validation rules?",
+        options: [":invalid", ":mistake", ":error"],
+        correctAnswer: ":invalid"
+    },
+    {
+        question: "Which input type automatically validates that the entered onformation has the structure of an email address?",
+        options: ["email", "isValidEmail", ".Text"],
+        correctAnswer: "email"
+    },
+    {
+        question: " Which attribute allows you to set a specific pattern that the input data should match?",
+        options: ["pattern", "fit", "regex"],
+        correctAnswer: "pattern"
+    },
+    {
+        question: "Which event fires when an element's value is changed?",
+        option: ["onchange", "onmodify", "onupdate"],
+        correctAnswer: "onchange"
+    },
+    {
+        question: "Which method allows you to set a custom validation message for an input element?",
+        option: ["setCustomValidity()", "setCustomError()", "setCustomMesssage()"],
+        correctAnswer: "setCustomValidity()"
+    },
+
 ]

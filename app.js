@@ -105,5 +105,24 @@ const quizData = [
         option: ["setCustomValidity()", "setCustomError()", "setCustomMesssage()"],
         correctAnswer: "setCustomValidity()"
     },
+];
 
-]
+//Track the user's answers and the current question index
+let currentQuestionIndex = 0;
+let userAnswers = [];
+
+//Function to load the current question
+function loadQuestion() {
+    const questionData = quizData[currentQuestionIndex];
+    const questionContainer = document.getElementById('question-container');
+    questionContainer.innerHTML =
+        <div class="question">
+            <label for="q">${questionData.question}</label>
+            <br/>
+            ${questionData.options.map((option, index) =>
+            `<input type="radio" name="q" value="${option}" id="option${index}"/>
+            <label for="option${index}"></label><br/>`).join('')}
+        </div>
+        ;
+}
+

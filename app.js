@@ -126,3 +126,8 @@ function loadQuestion() {
         ;
 }
 
+//Function to handle form submission (tracking answers and showing next question)
+document.getElementById('quiz-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+})

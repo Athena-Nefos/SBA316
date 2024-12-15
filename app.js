@@ -151,6 +151,24 @@ function loadQuestion() {
         questionContainer.appendChild(radioInput);
         questionContainer.appendChild(label);
 
-        
-    })
+        //Line break for better presentation
+        questionContainer.appendChild(document.createElement('br')); 
+    });
 }
+
+//Step 5: Modify HTML content in response to user interaction using innerHTML
+function showResults() {
+    let score = 0;
+    quizData.forEach((question, index) => {
+        if (userAnswers[index] === question.correctAnswer) {
+            score++;
+        }
+    });
+
+    // Display the final result
+    resultContainer.innerHTML =
+        `<h2>Quiz Completed!</h2>
+        <p>You scored ${score} out of ${quizData.length}.</p>
+        <button onclick="restartQuiz()">Restart Quiz</button>`;
+}
+

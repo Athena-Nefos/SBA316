@@ -183,7 +183,7 @@ submitButton.addEventListener('mouseover', () => {
       //Change button color on hover
 });
 submitButton.addEventListener('mouseout', () => {
-    submitButton.style.backgroundColor = 'rgb(168, 133, 133)';
+    submitButton.style.backgroundColor = '';
      //Reset button color 
 });
 
@@ -199,7 +199,7 @@ submitButton.addEventListener('click', () => {
 
 //Step 8: Register at least two different event listeners with event handlers
 //Event listener for form submission
-const quizForm = document.querySelector('quiz-form');
+document.querySelector('#quiz-form');
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); //Prevent page reload
 
@@ -220,12 +220,12 @@ quizForm.addEventListener('submit', function (e) {
     }
 });
 
-//Event listener for restarting the quiz
+//restarting the quiz
 function restartQuiz() {
     currentQuestionIndex = 0;
-    userAnswer = [];
+    userAnswers = [];
     resultContainer.innerHTML = ''; //Clears the result container
-    loadQuestion(); //Reload the forst question
+    loadQuestion(); //Reload the first question
 }
 
 //Step 9: Use at least two BOM properties or methods

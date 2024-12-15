@@ -198,5 +198,12 @@ const quizForm = document.querySelector('quiz-form');
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); //Prevent page reload
 
-    
+    //Validate user inout
+    const selectedAnswer = document.querySelector('input[name="q"]:checked');
+    if (selectedAnswer) {
+        userAnswers.push(selectedAnswer.value);
+        currentQuestionIndex++;
+
+        
+    }
 })

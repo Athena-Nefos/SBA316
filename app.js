@@ -198,12 +198,21 @@ const quizForm = document.querySelector('quiz-form');
 quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); //Prevent page reload
 
-    //Validate user inout
+    //Validate user input
     const selectedAnswer = document.querySelector('input[name="q"]:checked');
     if (selectedAnswer) {
         userAnswers.push(selectedAnswer.value);
         currentQuestionIndex++;
 
-        
+        //Load the next question or show results if it was the last question
+        if (currentQuestionIndex < quizData.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    } else {
+        alert('Please select an answer'); //Notify user to select an answer
     }
-})
+});
+
+//Event listener for restarting the quiz

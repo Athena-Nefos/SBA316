@@ -107,72 +107,7 @@ const quizData = [
     },
 ];
 
-//Track the user's answers and the current question index
-let currentQuestionIndex = 0;
-let userAnswers = [];
-
-//Function to load the current question
-function loadQuestion() {
-    const questionData = quizData[currentQuestionIndex];
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.innerHTML =
-        `<div class="question">
-            <p>${questionData.question}</p>
-            ${questionData.options.map((option, index) =>
-            `<input type="radio" name="q" value="${option}" id="option${index}"/>
-            <label for="option${index}">${option}</label><br/>`).join('')}
-        </div>`
-        ;
-}
-
-//Function to handle form submission (tracking answers and showing next question)
-document.getElementById('quiz-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    //Get selected answer for the current question
-    const selectedAnswer = document.querySelector('input[name="q"]:checked');
-    
-    if (selectedAnswer) {
-        // Save the user's answer
-        userAnswers.push(selectedAnswer.value);
-        currentQuestionIndex++;
-        
-        // If there are more questions, load the next question
-        if (currentQuestionIndex < quizData.length) {
-            loadQuestion();
-        } else {
-            // If it's the last question, show the results
-            showResults();
-        }
-    } else {
-        alert('Please select an answer');
-    }
-});
-
-// Function to show the final score
-function showResults() {
-    let score = 0;
-    quizData.forEach((question, index) => {
-        if (userAnswers[index] === question.correctAnswer) {
-            score++;
-        }
-    });
-
-    const resultContainer = document.getElementById('result');
-    resultContainer.innerHTML = `
-        <h2>Quiz Completed!</h2>
-        <p>You scored ${score} out of ${quizData.length}.</p>
-        <button onclick="restartQuiz()">Restart Quiz</button>
-    `;
-}
-
-// Function to restart the quiz
-function restartQuiz() {
-    currentQuestionIndex = 0;
-    userAnswers = [];
-    document.getElementById('result').innerHTML = '';
-    loadQuestion();
-}
-
-// Initial load of the first question
-loadQuestion();
+// Step 1: Cache at least one element using getElemtnById
+const quizContainer = document.getElementById('quiz-Container'); 
+// Cache the main quiz container (creates a reusable variable)
+const questionContainer = document.getElementById('question-container'); //Cache the container for questions

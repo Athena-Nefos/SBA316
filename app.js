@@ -23,7 +23,7 @@ const quizData = [
     {
         question: "Which method returns a NodeList of elements with a specified class name?",
         options: ["document.getElementByClassName()", "document.getElementByClass()", "document.querySelector()"],
-        correctAnswer: "document.getElementsByClassName"
+        correctAnswer: "document.getElementsByClassName()"
     },
     {
         question: "Which method of the window.history object allows the user to move one step back in the browser's history?",
@@ -33,7 +33,7 @@ const quizData = [
     {
         question: "What is the primary purpose of the window.navigator object?",
         options: ["To provide information about the web browser and its capabilites", "To interface with the computer's file system", "To handle navigation requests to other pages"],
-        correctAnswer: "To provide informamtion about the web browser and its capabilities"
+        correctAnswer: "To provide information about the web browser and its capabilities"
     },
     {
         question: "Which of the following best describe the Browser Object Model?",
@@ -53,7 +53,7 @@ const quizData = [
     {
         question: "Which method is used to attach an event handler to an element?",
         options: ["element.listen()", "element.addEvent()", "element.addEventListener()"],
-        correctAnswer: "element.addEventListener"
+        correctAnswer: "element.addEventListener()"
     },
     {
         question: "if you want to capture an event before it reaches its target element, during which phase should you add the event listener?",
@@ -107,14 +107,15 @@ const quizData = [
     },
 ];
 
-// Step 1: Cache at least one element using getElemtnById
-const quizContainer = document.getElementById('quiz-Container'); 
+// Step 1: Cache at least one element using getElementById
+const quizContainer = document.getElementById('quiz-container'); 
 // Cache the main quiz container (creates a reusable variable)
 const questionContainer = document.getElementById('question-container'); //Cache the container for questions
 
 //Step 2: Cache at least one element using querySelector
 const submitButton = document.querySelector('#submit-btn');
 const resultContainer = document.querySelector('#result');
+const quizForm = document.querySelector('#quiz-form');
 
 // Step: 2/2 Initialize required variables
 let currentQuestionIndex = 0; 
@@ -143,7 +144,7 @@ function loadQuestion() {
         //create radio button inputs
         const radioInput = document.createElement('input');
         radioInput.type = 'radio';
-        radioInput.name = 'q';
+        radioInput.name = `q${currentQuestionIndex}`;
         radioInput.value = option;
         radioInput.id = `option${index}`;
 
@@ -179,11 +180,11 @@ function showResults() {
 
 // Step 6:  Modify the style or CSS classes in response to user Interation
 submitButton.addEventListener('mouseover', () => {
-     submitButton.style.backgroundColor = '#4CAF50';
+     submitButton.style.backgroundColor = '#5b9d5f';
       //Change button color on hover
 });
 submitButton.addEventListener('mouseout', () => {
-    submitButton.style.backgroundColor = '';
+    submitButton.style.backgroundColor = '(rgb(168, 133, 133))';
      //Reset button color 
 });
 
@@ -194,7 +195,7 @@ submitButton.addEventListener('click', () => {
     setTimeout(() => {
         submitButton.removeAttribute('disabled'); 
         //Re-enable button after 1 second
-    }, 1000);
+    }, 500);
 });
 
 //Step 8: Register at least two different event listeners with event handlers
@@ -204,7 +205,7 @@ quizForm.addEventListener('submit', function (e) {
     e.preventDefault(); //Prevent page reload
 
     //Validate user input
-    const selectedAnswer = document.querySelector('input[name="q"]:checked');
+    const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
     if (selectedAnswer) {
         userAnswers.push(selectedAnswer.value);
         currentQuestionIndex++;
@@ -233,4 +234,6 @@ console.log(window.innerWidth); //logs browser window's width
 console.log(window.location.href); //logs current page URL
 
 // Start Quiz
-loadQuestion();
+document.addEventListener('DOMContentLoaded', () => {
+    loadQuestion();
+}); 

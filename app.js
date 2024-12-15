@@ -117,3 +117,40 @@ const submitButton = document.querySelector('#submit-btn');
 const resultContainer = document.querySelector('#result');
 
 
+// Step 3: Create at least one element using createElement
+//Function to dynamically create and add a question to the DOM
+function loadQuestion() {
+    const questionData = quizData[currentQuestionIndex];
+
+    //Clear previous question
+    questionContainer.innerHTML = '';
+
+    //Create a question <p>
+    const questionElement = document.createElement('p');
+    questionElement.textContent = questionData.question; 
+    //Set the question text
+    questionContainer.appendChild(questionElement); 
+    // Append the question to the container
+
+    // Step 4: Use appendChild to add new elements to the DOM
+    questionData.options.forEach((option, index) => {
+        // Iterates through radio buttons
+        //create radio button inputs
+        const radioInput = document.createElement('input');
+        radioInput.type = 'radio';
+        radioInput.name = 'q';
+        radioInput.value = option;
+        radioInput.id = `option${index}`;
+
+        //Create label for the radio button
+        const label = document.createElement('label');
+        label.htmlFor = `option${index}`;
+        label.textContent = option;
+
+        //Append radio input and label to the container
+        questionContainer.appendChild(radioInput);
+        questionContainer.appendChild(label);
+
+        
+    })
+}

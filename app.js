@@ -111,3 +111,9 @@ const quizData = [
 const quizContainer = document.getElementById('quiz-Container'); 
 // Cache the main quiz container (creates a reusable variable)
 const questionContainer = document.getElementById('question-container'); //Cache the container for questions
+
+//Step 2: Cache at least one element using querySelector
+const submitButton = document.querySelector('#submit-btn');
+const resultContainer = document.querySelector('#result');
+
+

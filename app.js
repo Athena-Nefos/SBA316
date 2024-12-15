@@ -1,4 +1,15 @@
-// Step 1. Define the questions and correct answers
+
+// Step 1: Cache at least one element using getElementById
+const quizContainer = document.getElementById('quiz-container'); 
+// Cache the main quiz container (creates a reusable variable)
+const questionContainer = document.getElementById('question-container'); //Cache the container for questions
+
+//Step 2: Cache at least one element using querySelector
+const submitButton = document.getElementById('submit-btn');
+const resultContainer = document.getElementById('result');
+const quizForm = document.querySelector('#quiz-form');
+
+// Define the questions and correct answers
 const quizData = [
     {
         question: "Which property would you use to get the next sibling of an element?",
@@ -107,15 +118,6 @@ const quizData = [
     },
 ];
 
-// Step 1: Cache at least one element using getElementById
-const quizContainer = document.getElementById('quiz-container'); 
-// Cache the main quiz container (creates a reusable variable)
-const questionContainer = document.getElementById('question-container'); //Cache the container for questions
-
-//Step 2: Cache at least one element using querySelector
-const submitButton = document.getElementById('submit-btn');
-const resultContainer = document.getElementById('result');
-const quizForm = document.querySelector('#quiz-form');
 
 // Step: 2/2 Initialize required variables
 let currentQuestionIndex = 0; 
@@ -175,8 +177,22 @@ function showResults() {
     resultContainer.innerHTML =
         `<h2>Quiz Completed!</h2>
         <p>You scored ${score} out of ${quizData.length}.</p>
-        <button onclick="restartQuiz()">Restart Quiz</button>`;
+        <button id="restartQuiz()">Restart Quiz</button>`;
 }
+
+//register event listener for restart
+const restartButton = document.getElementById('restart-btn');
+restartButton.addEventListener('click', restartQuiz);
+
+//restarting the quiz
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    userAnswers = [];
+    resultContainer.innerHTML = ''; //Clears the result container
+    loadQuestion(); //Reload the first question
+}
+
+
 
 // Step 6:  Modify the style or CSS classes in response to user Interation
 submitButton.addEventListener('mouseover', () => {
@@ -188,15 +204,7 @@ submitButton.addEventListener('mouseout', () => {
      //Reset button color 
 });
 
-//Step 7: Modify an attribute of an element in response to user interaction
-submitButton.addEventListener('click', () => {
-    submitButton.setAttribute('disabled', true);
-    // Disable button after after click
-    setTimeout(() => {
-        submitButton.removeAttribute('disabled'); 
-        //Re-enable button after 1 second
-    }, 500);
-});
+
 
 //Step 8: Register at least two different event listeners with event handlers
 //Event listener for form submission
@@ -221,13 +229,7 @@ quizForm.addEventListener('submit', function (e) {
     }
 });
 
-//restarting the quiz
-function restartQuiz() {
-    currentQuestionIndex = 0;
-    userAnswers = [];
-    resultContainer.innerHTML = ''; //Clears the result container
-    loadQuestion(); //Reload the first question
-}
+
 
 //Step 9: Use at least two BOM properties or methods
 console.log(window.innerWidth); //logs browser window's width

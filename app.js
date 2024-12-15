@@ -180,4 +180,18 @@ submitButton.addEventListener('mouseover', () => {
 submitButton.addEventListener('mouseout', () => {
     submitButton.style.backgroundColor = 'rgb(168, 133, 133)';
      //Reset button color 
-})
+});
+
+//Step 7: Modify an attribute of an element in response to user interaction
+submitButton.addEventListener('click', () => {
+    submitButton.setAttribute('disabled', true);
+    // Disable button after after click
+    setTimeout(() => {
+        submitButton.removeAttribute('disabled'); 
+        //Re-enable button after 1 second
+    }, 1000);
+});
+
+//Step 8: Register at least two different event listeners with event handlers
+//Event listener for form submission
+const quizForm = document.querySelector('quiz-form');

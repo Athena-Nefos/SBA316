@@ -172,3 +172,12 @@ function showResults() {
         <button onclick="restartQuiz()">Restart Quiz</button>`;
 }
 
+// Step 6:  Modify the style or CSS classes in response to user Interation
+submitButton.addEventListener('mouseover', () => {
+     submitButton.style.backgroundColor = '#4CAF50';
+      //Change button color on hover
+});
+submitButton.addEventListener('mouseout', () => {
+    submitButton.style.backgroundColor = 'rgb(168, 133, 133)';
+     //Reset button color 
+})

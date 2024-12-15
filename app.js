@@ -116,6 +116,11 @@ const questionContainer = document.getElementById('question-container'); //Cache
 const submitButton = document.querySelector('#submit-btn');
 const resultContainer = document.querySelector('#result');
 
+// Step: 2/2 Initialize required variables
+let currentQuestionIndex = 0; 
+//Tracks the current question index
+let userAnswers = []; 
+//Store's the user's answers
 
 // Step 3: Create at least one element using createElement
 //Function to dynamically create and add a question to the DOM
@@ -216,3 +221,16 @@ quizForm.addEventListener('submit', function (e) {
 });
 
 //Event listener for restarting the quiz
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    userAnswer = [];
+    resultContainer.innerHTML = ''; //Clears the result container
+    loadQuestion(); //Reload the forst question
+}
+
+//Step 9: Use at least two BOM properties or methods
+console.log(window.innerWidth); //logs browser window's width
+console.log(window.location.href); //logs current page URL
+
+// Start Quiz
+loadQuestion();

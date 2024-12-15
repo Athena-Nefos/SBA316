@@ -192,27 +192,9 @@ function restartQuiz() {
     loadQuestion(); //Reload the first question
 }
 
-
-
-// Step 6:  Modify the style or CSS classes in response to user Interation
-submitButton.addEventListener('mouseover', () => {
-     submitButton.style.backgroundColor = '#5b9d5f';
-      //Change button color on hover
-});
-submitButton.addEventListener('mouseout', () => {
-    submitButton.style.backgroundColor = '(rgb(168, 133, 133))';
-     //Reset button color 
-});
-
-
-
-//Step 8: Register at least two different event listeners with event handlers
-//Event listener for form submission
-document.querySelector('#quiz-form');
 quizForm.addEventListener('submit', function (e) {
-    e.preventDefault(); //Prevent page reload
-
-    //Validate user input
+    e.preventDefault();
+    //Select answer
     const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
     if (selectedAnswer) {
         userAnswers.push(selectedAnswer.value);
@@ -228,6 +210,29 @@ quizForm.addEventListener('submit', function (e) {
         alert('Please select an answer'); //Notify user to select an answer
     }
 });
+
+
+// Step 6:  Modify the style or CSS classes in response to user Interation
+submitButton.addEventListener('mouseover', () => {
+     submitButton.style.backgroundColor = '#5b9d5f';
+      //Change button color on hover
+      submitButton.classList.add('hovered');
+});
+submitButton.addEventListener('mouseout', () => {
+    submitButton.style.backgroundColor = '(rgb(168, 133, 133))';
+     //Reset button color 
+     submitButton.classList.remove('hovered');
+});
+
+
+
+//Step 8: Register at least two different event listeners with event handlers
+//Event listener for form submission
+//quizForm.addEventListener('submit', function (e) {
+  //  e.preventDefault(); //Prevent page reload
+
+    //Validate user input
+
 
 
 

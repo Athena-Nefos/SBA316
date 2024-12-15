@@ -195,3 +195,8 @@ submitButton.addEventListener('click', () => {
 //Step 8: Register at least two different event listeners with event handlers
 //Event listener for form submission
 const quizForm = document.querySelector('quiz-form');
+quizForm.addEventListener('submit', function (e) {
+    e.preventDefault(); //Prevent page reload
+
+    
+})

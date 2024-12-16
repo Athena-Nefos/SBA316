@@ -177,15 +177,16 @@ function showResults() {
     resultContainer.innerHTML =
         `<h2>Quiz Completed!</h2>
         <p>You scored ${score} out of ${quizData.length}.</p>
-        <button id="restartQuiz()">Restart Quiz</button>`;
-}
+        <button id="restart-btn">Restart Quiz</button>`;
+
 
 //register event listener for restart
 const restartButton = document.getElementById('restart-btn');
 restartButton.addEventListener('click', restartQuiz);
-
+}
 //restarting the quiz
 function restartQuiz() {
+    console.log('the rustart function got called')
     currentQuestionIndex = 0;
     userAnswers = [];
     resultContainer.innerHTML = ''; //Clears the result container
